@@ -1,0 +1,69 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext.versions = [
+    'activity': '1.4.0',
+    'compose': '1.1.1',
+    'composeDestinations': '1.4.2-beta',
+    'composeNavigation': '1.0.0',
+    'gradle': '7.3.1',
+    'hilt': '2.44',
+    'junit': '4.13.2',
+    'kotlin_version' : '1.7.10',
+    'moshi': '1.13.0',
+    'nav': '2.5.1',
+    'retrofit': '2.9.0',
+    'timber': '5.0.1',
+    ]
+
+    ext.deps = [
+        'activity': "androidx.activity:activity-compose:${versions.activity}",
+        'compose': [
+            'ui': "androidx.compose.ui:ui:${versions.compose}",
+            'material': "androidx.compose.material:material:${versions.compose}",
+            'uiTooling': "androidx.compose.ui:ui-tooling:${versions.compose}",
+            'uiToolingPreview': "androidx.compose.ui:ui-tooling-preview:${versions.compose}",
+            'liveData': "androidx.compose.runtime:runtime-livedata:${versions.compose}",
+            'navigation': "androidx.navigation:navigation-compose:${versions.nav}"
+        ],
+        'hilt' : [
+                'navigationCompose': "androidx.hilt:hilt-navigation-compose:${versions.composeNavigation}",
+                'hilt': "com.google.dagger:hilt-android:${versions.hilt}",
+                'hiltCompiler': "com.google.dagger:hilt-compiler:${versions.hilt}"
+        ],
+        'junit' : "junit:junit:${versions.junit}",
+        'moshi': [
+                'core' : "com.squareup.moshi:moshi:${versions.moshi}",
+                'codeGen' : "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}",
+                'adapters' : "com.squareup.moshi:moshi-adapters:${versions.moshi}"
+        ],
+        'retrofit': [
+                'converter': "com.squareup.retrofit2:converter-scalars:${versions.retrofit}",
+                'converterMoshi': "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
+        ],
+        'timber': "com.jakewharton.timber:timber:${versions.timber}"
+    ]
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:${versions.gradle}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin_version}"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:${versions.hilt}"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
