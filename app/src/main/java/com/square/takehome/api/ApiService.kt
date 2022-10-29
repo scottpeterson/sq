@@ -5,11 +5,11 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("employees.json")
-    suspend fun getEmployees(): Response<EmployeeWrapper>
+    suspend fun getEmployees(): Response<EmployeeResponse>
 
     @GET("employees_malformed.json")
-    suspend fun getEmployeesMalformedData(): Response<EmployeeWrapper>
+    suspend fun getEmployeesMalformedData(): Response<EmployeeResponse>
 
     @GET("employees_empty.json")
-    suspend fun getEmployeesEmptyData(): Response<EmployeeWrapper>
+    suspend fun getEmployeesEmptyData(): Response<EmployeeResponse>
 }

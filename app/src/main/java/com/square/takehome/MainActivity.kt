@@ -22,8 +22,6 @@ class MainActivity : ComponentActivity() {
                 Surface {
                     Scaffold {
                         EmployeeDirectoryScreen(
-                            viewModel = EmployeeDirectoryViewModel(
-                            )
                         )
                     }
                 }

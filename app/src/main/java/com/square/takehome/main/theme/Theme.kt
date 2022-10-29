@@ -7,25 +7,25 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val LightColorPalette = lightColors(
-    primary = SquareColors.White,
-    onPrimary = SquareColors.Red,
+    primary = SquareColors.CashAppGreen,
+    onPrimary = SquareColors.White,
     secondary = SquareColors.White,
-    onSecondary = SquareColors.Red,
+    onSecondary = SquareColors.Black,
     background = SquareColors.White,
-    onBackground = SquareColors.Red,
+    onBackground = SquareColors.Black,
     surface = SquareColors.White,
-    onSurface = SquareColors.Red
+    onSurface = SquareColors.Black
 )
 
 private val DarkColorPalette = darkColors(
-    primary = SquareColors.Black,
-    onPrimary = SquareColors.Red,
+    primary = SquareColors.CashAppGreen,
+    onPrimary = SquareColors.Black,
     secondary = SquareColors.Black,
-    onSecondary = SquareColors.Red,
+    onSecondary = SquareColors.CashAppGreen,
     background = SquareColors.Black,
-    onBackground = SquareColors.Red,
+    onBackground = SquareColors.CashAppGreen,
     surface = SquareColors.Black,
-    onSurface = SquareColors.Red
+    onSurface = SquareColors.CashAppGreen
 )
 
 @Composable

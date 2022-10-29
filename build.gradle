@@ -3,6 +3,7 @@
 buildscript {
 
     ext.versions = [
+    'accompanist': '0.23.1',
     'activity': '1.4.0',
     'compose': '1.1.1',
     'composeDestinations': '1.4.2-beta',
@@ -18,6 +19,7 @@ buildscript {
     ]
 
     ext.deps = [
+        'accompanist': "com.google.accompanist:accompanist-swiperefresh:${versions.accompanist}",
         'activity': "androidx.activity:activity-compose:${versions.activity}",
         'compose': [
             'ui': "androidx.compose.ui:ui:${versions.compose}",

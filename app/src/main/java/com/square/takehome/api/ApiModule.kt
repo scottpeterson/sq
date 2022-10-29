@@ -1,6 +1,8 @@
 package com.square.takehome.api
 
+import com.square.takehome.BuildConfig
 import com.square.takehome.repository.Repository
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,6 +11,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -26,16 +29,23 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun providesOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    fun provideOkHttpClient() = if (BuildConfig.DEBUG){
+        val loggingInterceptor =HttpLoggingInterceptor()
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+    }else{
         OkHttpClient
             .Builder()
-            .addInterceptor(httpLoggingInterceptor)
             .build()
+    }
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create())
+    fun provideRetrofit(moshi: Moshi, okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
+        .addConverterFactory(ScalarsConverterFactory.create())
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()
@@ -47,4 +57,14 @@ object ApiModule {
     @Singleton
     @Provides
     fun providesRepository(apiService: ApiService) = Repository(apiService)
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+object MoshiModule {
+    @Provides
+    fun provideMoshi(): Moshi {
+        return Moshi.Builder()
+            .build()
+    }
 }
