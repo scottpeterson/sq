@@ -1,28 +1,46 @@
-# Square Take Home Project README
-Build an employee directory app that shows a list of employees from the provided endpoint.
+## Build tools & versions used
+Gradle with Groovy DSL
 
+## Steps to run the app
+Build it and run it via Android Studio!
 
+## What areas of the app did you focus on?
+I wanted the error checking, at both the repository layer, and the viewModel layer, 
+to handle many potential cases, especially the unhappy ones.
 
+I enjoy setting up theming, even for a simple app. The bit of work to force consistent styling has served me well.
 
+I also needed to spend some time learning about the implementation details of coroutines, 
+to ensure data was returned in a reliable way to the frontend, as well as test the implementation.
 
-# Project Instructions
-Your Code: Zip up the project and include it in the email. This can be either flat files, or a zipped up git repo containing development history.
+## What was the reason for your focus? What problems were you trying to solve?
+Coroutines are both a tool I use a lot, and an area I wanted to work hard to get better in. 
 
-In a README in that project, please include:
+## How long did you spend on this project?
+About 6 hours, a large amount of which was on debugging a coroutines bug.
 
-Your Focus Areas. What area(s) did you focus on when working on the project? 
-The architecture and data flow? The UI? Something else? 
-Please note what you think best exhibits your skills and areas of expertise.
+## Did you make any trade-offs for this project? What would you have done differently with more time?
+(a) I would've styled the directory more, including the Error/Empty screens
+(b) I would've written more unit tests for unhappy paths
+(c) I _really_ want to go deep into dependency management. My deps/testDeps keys should be named better, 
+any unused dependencies should be removed, and dependency imports in the app/build.gradle should be organized better
 
-Copied-in code or copied-in dependencies. We’re obviously looking to evaluate your skills as an engineer! 
-As such, please tell us which code you’ve copied into your project so we can distinguish between code written for this project, versus code written at another time, or by others 
-(if you’re just referencing a dependency via a dependency manager, no need to call it out here).
+## What do you think is the weakest part of your project?
+Coroutines. It works, but a lot is still magic to me. A quote by one of your employees that I think about all the time is:
+“If I can write good coroutines code that I can predict what it does, then I can write good coroutines test code"
 
-Tablet / phone focus. If you focus on one or the other, please let us know which one.
+I need to learn more about writing awesome coroutines code where I know exactly what to expect. 
 
-How long you spent on the project. 
-We’d like to know how long you spent on the project so we can calibrate our review. 
-Please do not feel like you need to spend more than the expected 4-5 hours.
+## Did you copy any code or dependencies? Please make sure to attribute them here!
+I copied from a past take home project, largely the gradle files. 
 
-Anything else you want us to know. 
-If there’s anything else of note that you think we should know while evaluating the project, please let us know!
+I copied in the `MainDispatcherRule` code from here: https://www.google.com/search?client=firefox-b-1-d&q=clear+image
+
+I needed to write most of the rest of the code from scratch.
+
+## Is there any other information you’d like us to know?
+I've greatly enjoyed focusing on Android development for over three years now. I love the increasingly complex problems I get to solve.
+
+I excel at learning new concepts, and communicating (whether it's when giving code review, pairing, asking questions of someone more senior, and more).
+
+There are pockets of Android development that I have gaps in -- I'm eager to fill those gaps and push myself to solve problems that are new to me. 

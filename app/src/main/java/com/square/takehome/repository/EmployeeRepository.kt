@@ -1,16 +1,17 @@
 package com.square.takehome.repository
 
-import android.telephony.PhoneNumberUtils
 import com.square.takehome.api.ApiService
 import com.square.takehome.api.DataSourceError
 import com.square.takehome.api.Employee
-import com.square.takehome.api.SquareError
 import com.square.takehome.utils.convertAnyErrorToSquareError
 import javax.inject.Inject
 
-class Repository @Inject constructor (private val apiService: ApiService) {
+class Repository @Inject constructor(private val apiService: ApiService) {
     private fun toFormattedPhoneNumber(phoneNumber: String): String {
-        return "(" + phoneNumber.substring(0,3) + ") " + phoneNumber.substring(3,6) + "-" + phoneNumber.substring(7)
+        return "(" + phoneNumber.substring(0, 3) + ") " + phoneNumber.substring(
+            3,
+            6
+        ) + "-" + phoneNumber.substring(7)
     }
 
     private fun toFormattedEmployeeType(employeeType: String): String {
@@ -89,6 +90,7 @@ class Repository @Inject constructor (private val apiService: ApiService) {
             }
         }
     }
+
     suspend fun getEmployeesEmptyData(): List<Employee> {
         convertAnyErrorToSquareError {
             val response = apiService.getEmployeesEmptyData()

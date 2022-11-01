@@ -29,13 +29,13 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient() = if (BuildConfig.DEBUG){
-        val loggingInterceptor =HttpLoggingInterceptor()
+    fun provideOkHttpClient() = if (BuildConfig.DEBUG) {
+        val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
-    }else{
+    } else {
         OkHttpClient
             .Builder()
             .build()

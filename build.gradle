@@ -5,13 +5,16 @@ buildscript {
     ext.versions = [
     'accompanist': '0.23.1',
     'activity': '1.4.0',
+    'coil': '2.2.2',
     'compose': '1.1.1',
     'composeDestinations': '1.4.2-beta',
     'composeNavigation': '1.0.0',
+    'coroutines': '1.6.1',
     'gradle': '7.3.1',
     'hilt': '2.44',
     'junit': '4.13.2',
     'kotlin_version' : '1.7.10',
+    'mockk': '1.10.5',
     'moshi': '1.13.0',
     'nav': '2.5.1',
     'retrofit': '2.9.0',
@@ -21,6 +24,10 @@ buildscript {
     ext.deps = [
         'accompanist': "com.google.accompanist:accompanist-swiperefresh:${versions.accompanist}",
         'activity': "androidx.activity:activity-compose:${versions.activity}",
+        'coil': [
+            'base': "io.coil-kt:coil:${versions.coil}",
+            'compose': "io.coil-kt:coil-compose:${versions.coil}"
+        ],
         'compose': [
             'ui': "androidx.compose.ui:ui:${versions.compose}",
             'material': "androidx.compose.material:material:${versions.compose}",
@@ -34,7 +41,6 @@ buildscript {
                 'hilt': "com.google.dagger:hilt-android:${versions.hilt}",
                 'hiltCompiler': "com.google.dagger:hilt-compiler:${versions.hilt}"
         ],
-        'junit' : "junit:junit:${versions.junit}",
         'moshi': [
                 'core' : "com.squareup.moshi:moshi:${versions.moshi}",
                 'codeGen' : "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}",
@@ -45,6 +51,12 @@ buildscript {
                 'converterMoshi': "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
         ],
         'timber': "com.jakewharton.timber:timber:${versions.timber}"
+    ]
+
+    ext.testDeps = [
+        'junit': "junit:junit:${versions.junit}",
+        'mockk': "io.mockk:mockk:${versions.mockk}",
+        'kotlinCoroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
     ]
 
     repositories {
