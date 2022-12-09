@@ -22,10 +22,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.football.assets.model.SeahawkItem
 import com.football.assets.presentationLayer.R
 import com.football.assets.presentationLayer.ui.theme.SquareColors
-import com.google.accompanist.swiperefresh.SwipeRefresh
-import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
 @Composable
 fun EmployeeDirectoryScreen(
@@ -55,42 +54,43 @@ fun EmployeeDirectoryScreen(
         SquareState.Loading -> LoadingScreenComposable()
         SquareState.Empty -> EmptyStateComposable()
         SquareState.Error -> ErrorStateComposable()
-        SquareState.Loaded -> SwipeRefresh(
-            state = rememberSwipeRefreshState(isRefreshing),
-            onRefresh = { viewModel.refresh() }) {
-            LazyColumn(
-                modifier = Modifier.padding(horizontal = 12.dp)
-            ) {
-                items(
-                    items = seahawksData!!
-                ) {
-                    Seahawk(
-                        name = it.name,
-                        rosterAssetRank = it.roster_asset_rank,
-                        position = it.position,
-                        positionGroup = it.position_group,
-                        positionGroupDepth = it.position_group_depth,
-                        height = it.height,
-                        weight = it.weight,
-                        experience = it.experience,
-                        college = it.college,
-                        collegeConference = it.college_conference,
-                        rosterType = it.roster_type,
-                        age = it.age,
-                        capNumber = it.cap_number,
-                        nextYearRosterStatus = it.next_year_status,
-                        groupAge = it.group_age,
-                        offenseDefense = it.offense_defense,
-                        ability = it.ability,
-                        overallStatistic = it.overall_statistic
-                    )
-                    Divider(
-                        color = SquareColors.Gray,
-                        thickness = 0.5.dp,
-                        startIndent = 16.dp
-                    )
-                }
-            }
+        SquareState.Loaded -> TheLazyColumn(data = seahawksData!!)
+    }
+}
+
+@Composable
+fun TheLazyColumn(data: List<SeahawkItem>) {
+    LazyColumn(
+        modifier = Modifier.padding(horizontal = 12.dp)
+    ) {
+        items(
+            items = data
+        ) {
+            Seahawk(
+                name = it.name,
+                rosterAssetRank = it.roster_asset_rank,
+                position = it.position,
+                positionGroup = it.position_group,
+                positionGroupDepth = it.position_group_depth,
+                height = it.height,
+                weight = it.weight,
+                experience = it.experience,
+                college = it.college,
+                collegeConference = it.college_conference,
+                rosterType = it.roster_type,
+                age = it.age,
+                capNumber = it.cap_number,
+                nextYearRosterStatus = it.next_year_status,
+                groupAge = it.group_age,
+                offenseDefense = it.offense_defense,
+                ability = it.ability,
+                overallStatistic = it.overall_statistic
+            )
+            Divider(
+                color = SquareColors.Gray,
+                thickness = 0.5.dp,
+                startIndent = 16.dp
+            )
         }
     }
 }

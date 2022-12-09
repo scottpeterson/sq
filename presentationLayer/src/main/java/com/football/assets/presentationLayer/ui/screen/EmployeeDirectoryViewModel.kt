@@ -33,7 +33,7 @@ class EmployeeDirectoryViewModel @Inject constructor(
     val seahawksData: MutableState<List<SeahawkItem>?> = mutableStateOf(null)
 
     init {
-        loadEmployees()
+//        loadEmployees()
         loadSeahawks()
     }
 
