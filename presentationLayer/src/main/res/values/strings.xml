@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Football Assets</string>
+
+
+
+    <!-- State Messages -->
+    <string name="state_loading">Loading</string>
+    <string name="state_no_data">No Data</string>
+    <string name="state_error">Error</string>
+    <string name="state_no_data_cta">Reload Data?</string>
+
+    <!-- Home Page -->
+    <string name="roster_asset_rank">Roster Asset Rank: </string>
+
+</resources>

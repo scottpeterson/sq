@@ -3,20 +3,22 @@
 buildscript {
 
     ext.versions = [
-    'accompanist': '0.23.1',
-    'activity': '1.4.0',
+    'accompanist': '0.28.0',
+    'activity': '1.6.1',
+    'appcompat': '1.5.1',
     'coil': '2.2.2',
     'compose': '1.1.1',
     'composeDestinations': '1.4.2-beta',
     'composeNavigation': '1.0.0',
     'coroutines': '1.6.1',
     'gradle': '7.3.1',
-    'hilt': '2.44',
+    'hilt': '2.44.2',
     'junit': '4.13.2',
     'kotlin_version' : '1.7.10',
     'mockk': '1.10.5',
-    'moshi': '1.13.0',
-    'nav': '2.5.1',
+    'moshi': '1.14.0',
+    'nav': '2.5.3',
+    'okhttp': '5.0.0-alpha.10',
     'retrofit': '2.9.0',
     'timber': '5.0.1',
     ]
@@ -24,6 +26,7 @@ buildscript {
     ext.deps = [
         'accompanist': "com.google.accompanist:accompanist-swiperefresh:${versions.accompanist}",
         'activity': "androidx.activity:activity-compose:${versions.activity}",
+        'appcompat': "androidx.appcompat:appcompat:${versions.appcompat}",
         'coil': [
             'base': "io.coil-kt:coil:${versions.coil}",
             'compose': "io.coil-kt:coil-compose:${versions.coil}"
@@ -46,6 +49,7 @@ buildscript {
                 'codeGen' : "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}",
                 'adapters' : "com.squareup.moshi:moshi-adapters:${versions.moshi}"
         ],
+        'okhttp': "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
         'retrofit': [
                 'converter': "com.squareup.retrofit2:converter-scalars:${versions.retrofit}",
                 'converterMoshi': "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",

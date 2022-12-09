@@ -6,9 +6,9 @@ plugins {
 }
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     defaultConfig {
-        applicationId "com.square.takeHome"
+        applicationId "com.football.assets"
         minSdkVersion 24
         targetSdkVersion 32
         versionCode 1
@@ -36,62 +36,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.square.takehome'
+
 }
 
 dependencies {
+    implementation project(':domainLayer')
 
     // Core
     implementation deps.activity
 
     // Compose
-    implementation deps.compose.ui
     implementation deps.compose.material
-    androidTestImplementation 'junit:junit:4.12'
-    debugImplementation deps.compose.uiTooling
-    implementation deps.compose.uiToolingPreview
-    implementation deps.compose.liveData
-    implementation deps.compose.navigation
 
     // Hilt
     implementation deps.hilt.navigationCompose
     implementation deps.hilt.hilt
     kapt deps.hilt.hiltCompiler
 
-    // Moshi
-    implementation deps.moshi.core
-    kapt deps.moshi.codeGen
-    implementation deps.moshi.adapters
-
-    // Retrofit
-    implementation deps.retrofit.converter
-    implementation deps.retrofit.converterMoshi
-
-    // Testing
-    testImplementation testDeps.junit
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
-    testImplementation testDeps.mockk
-    testImplementation testDeps.kotlinCoroutines
-
     // Timber
     implementation deps.timber
-
-    // Coil
-    implementation deps.coil.base
-    implementation deps.coil.compose
-
-    implementation deps.accompanist
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin_version}"
-
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.10"
-
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 }

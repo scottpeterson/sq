@@ -1,13 +1,3 @@
 <resources>
-    <string name="app_name">SquareTakeHome</string>
-
-    <!-- DataSourceError -->
-    <string name="error_api_ioexception">Unable to connect to server.</string>
-    <string name="error_api_session_expired">Session Expired.</string>
-    <string name="error_api_timeout">Server Timed Out.</string>
-    <string name="error_api_unknown">Unknown Error. Try again.</string>
-    <string name="error_api_json_data">Unexpected data format. %1$s</string>
-    <string name="error_api_request_failed">Request failed (%1$d). Try again.</string>
-    <string name="error_api_request_unexpected_end_of_file">Response from server ended unexpectedly.</string>
-    <string name="error_api_null_body">Server response had no content.</string>
+    <string name="app_name">Football Assets</string>
 </resources>
